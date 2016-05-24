@@ -24,11 +24,45 @@
   <body ng-app="starter">
 
     <ion-pane>
-      <ion-header-bar class="bar-stable">
+      <ion-header-bar class="bar-stable bar-dark">
         <h1 class="title">Ionic Blank Starter</h1>
       </ion-header-bar>
       <ion-content>
+        <div class="card">
+            <center><h2><div id='life'>
+                20
+            </div></h2></center>
+        </div>
+        <div class="button-bar">
+          <a class='button' onclick='minus("-1")'>-1 life</a>
+          <a class='button' onclick='minus("+1")'>+1 life</a>
+        </div><br>
+        <div class="button-bar">
+          <a class='button' onclick='minus("-5")'>-5 life</a>
+          <a class='button' onclick='minus("+5")'>+5 life</a>
+        </div><br>
+        <div class="button-bar">
+          <a class='button' onclick='randomNum()'>Roll Dice</a>
+          <a class='button' id='random'>0</a>
+        </div><br><br>
+        <center><a class='button' onclick='resetNum()'>Reset</a></center>
       </ion-content>
     </ion-pane>
+    <script type="text/javascript">
+        function minus(plusOrMinus){
+          plusOrMinus = parseInt(plusOrMinus);
+          currentLife = parseInt(document.getElementById('life').innerHTML)+plusOrMinus;
+          if(currentLife < 0) {
+            currentLife = 0;
+          }
+          document.getElementById('life').innerHTML = currentLife;
+        }
+        function randomNum (){
+          document.getElementById('random').innerHTML = Math.floor(Math.random() * (20-1+1)*1);
+        }
+        function resetNum() {
+          document.getElementById('life').innerHTML = 20;
+        }
+    </script>
   </body>
 </html>
